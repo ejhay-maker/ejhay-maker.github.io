@@ -1,0 +1,633 @@
+/*==================================
+    GLOBAL STYLES & TYPOGRAPHY
+====================================*/
+
+:root {
+    /* Define color palette */
+    --primary-color: #414A4C /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --accent-color: #b71616; /* Yellow for CTA */
+    --dark-color: #212529; /* Dark for text/background */
+    --light-color: #30f1ff; /* Light for background */
+    --text-color: #500101;
+    --white: #8a553c;
+    
+    /* Font families */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Global Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Headings */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+
+/*==================================
+    NAVIGATION BAR
+====================================*/
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+/* Changed .nav-container padding to remove redundancy from global .container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0; /* Container handles side padding */
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);  
+}
+
+.mobile-menu-toggle {
+    display: none; /* Hide on desktop */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu (Hidden by default) */
+.mobile-menu {
+    display: none;
+    background-color: var(--dark-color);
+    position: fixed;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 20px;
+}
+
+.mobile-nav-links li {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: var(--light-color);
+    font-size: 1.1rem;
+    display: block;
+    padding: 10px 0;
+}
+
+/* Note: Mobile menu display logic usually requires JavaScript. */
+
+
+/*==================================
+    HERO SECTION
+====================================*/
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 100px 5% 50px;
+    position: relative;
+    overflow: hidden; /* To contain floating shapes */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero .subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff0d0d;
+    transform: translateY(-2px);
+}
+
+/* Scroll Indicator (Styling for a simple down arrow) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.scroll-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.scroll-indicator:hover {
+    opacity: 0.8;
+}
+
+/* Floating Shapes (Placeholder for visual flair - requires animations) */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.shape-1 { top: 10%; left: 15%; width: 150px; height: 150px; }
+.shape-2 { bottom: 5%; right: 10%; width: 100px; height: 100px; background: rgba(255, 193, 7, 0.15); }
+.shape-3 { top: 30%; right: 40%; width: 50px; height: 50px; background: rgba(0, 123, 255, 0.2); }
+.shape-4 { bottom: 40%; left: 30%; width: 80px; height: 80px; background: rgba(255, 193, 7, 0.1); }
+.shape-5 { top: 70%; left: 5%; width: 120px; height: 120px; background: rgba(0, 123, 255, 0.15); }
+.shape-6 { bottom: 20%; right: 45%; width: 70px; height: 70px; background: rgba(255, 193, 7, 0.2); }
+/* Note: You will need to add CSS animations (@keyframes) for these to "float" */
+
+
+/*==================================
+    ABOUT SECTION
+====================================*/
+
+.about {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    min-height: 400px;
+    background: var(--secondary-color); /* Placeholder color */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Set a placeholder image or an empty visual space */
+    background-image: url('images/pogiko.jpg'); /* REPLACE with a real image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.skills {
+    margin-top: 25px;
+}
+
+.skill-tag {
+    display: inline-block;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+}
+
+
+/*==================================
+    PORTFOLIO SECTION
+====================================*/
+
+.portfolio {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-image {
+    height: 200px;
+    background: none; /* Removed placeholder color */
+    opacity: 1; /* Ensured full visibility */
+    background-size: cover; /* Important for fitting the image */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portfolio-content {
+    padding: 20px;
+}
+
+.portfolio-content h4 {
+    font-family: var(--font-heading);
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.portfolio-tech {
+    margin-top: 15px;
+}
+
+.tech-tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: var(--secondary-color);
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+/*==================================
+    PORTFOLIO IMAGE ASSIGNMENTS
+====================================*/
+
+.item-1 {
+    /* Image for E-commerce Platform */
+    background-image: url('images/onepiece.jpg');'); 
+}
+
+.item-2 {
+    /* Image for Brand Identity System */
+    background-image: url('images/demonslayer.webp'); 
+}
+
+.item-3 {
+    /* Image for Mobile App Design */
+    background-image: url('images/meliodas.webp'); 
+}
+
+.item-4 {
+    /* Image for Dashboard Interface */
+    background-image: url('images/sololeveling.webp'); 
+}
+
+.item-5 {
+    /* Image for Marketing Website */
+    background-image: url('images/hero.avif'); 
+}
+
+.item-6 {
+    /* Image for Creative Portfolio */
+    background-image: url('images/asta.webp'); 
+}
+
+/*==================================
+    CONTACT SECTION
+====================================*/
+
+.contact {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact .section-title {
+    color: var(--white);
+}
+
+.contact p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--dark-color);
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffcc4d;
+    transform: translateY(-1px);
+}
+
+/* Contact Floating Shapes (for visual flair) */
+.contact-floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.contact-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(30px);
+}
+.contact-shape-1 { top: 20%; left: 80%; width: 100px; height: 100px; }
+.contact-shape-2 { bottom: 10%; right: 15%; width: 50px; height: 50px; }
+.contact-shape-3 { top: 5%; left: 5%; width: 80px; height: 80px; }
+.contact-shape-4 { bottom: 30%; left: 60%; width: 120px; height: 120px; }
+.contact-shape-5 { top: 70%; right: 40%; width: 60px; height: 60px; }
+.contact-shape-6 { bottom: 50%; left: 10%; width: 90px; height: 90px; }
+
+
+/*==================================
+    FOOTER
+====================================*/
+
+.footer {
+    background-color: var(--dark-color);
+    color: var(--secondary-color);
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-right a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+    color: var(--primary-color);
+}
+
+
+/*==================================
+    RESPONSIVENESS (Mobile Styles)
+====================================*/
+
+@media (max-width: 768px) {
+    
+    /* Navigation Adjustments */
+    .nav-container {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none; /* Hide desktop menu */
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+
+    /* Hero Section Adjustments */
+    .hero {
+        padding: 100px 5% 50px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    /* About Section Adjustments */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        min-height: 250px;
+        width: 100%;
+        order: 1; /* Puts image first */
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        order: 2;
+    }
+    
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .skill-tag {
+        margin: 5px;
+    }
+
+    /* Contact Form Adjustments */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* Footer Adjustments */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-left {
+        margin-bottom: 10px;
+    }
+
+    .footer-right a {
+        margin: 0 10px;
+    }
+}
